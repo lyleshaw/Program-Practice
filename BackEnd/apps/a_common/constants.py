@@ -33,6 +33,19 @@ SEX_CHOICE = to_choice(Sex)
 SEX_MAP = to_map(Sex)
 
 
+class HealthCodeStatus:
+    GREEN = 1
+    YELLOW = 2
+    ORANGE = 3
+    RED = 4
+    UNSIGNED = 5
+
+
+HealthCode_Literal = Literal[1, 2, 3, 4, 5]
+HealthCode_Choice = to_choice(Sex)
+HealthCode_Map = to_map(Sex)
+
+
 class PermissionType:
     COMMON = 1
     COLLEGE_MANAGE = 2

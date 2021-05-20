@@ -15,6 +15,7 @@ from apps.view.manage_user import manage_user_prefix, manage_user_router
 from apps.view.permission import permission_prefix, permission_router
 from apps.view.user import user_prefix, user_router, user_router
 from apps.view.role import role_prefix, role_router, role_router
+from apps.view.form import form_prefix, form_router, form_router
 from config import API_PREFIX, DEBUG, DEFAULT_APP_NAME
 
 # 命名规则如下，蓝图加上后缀，避免发生命名冲突，所有的资源都以复数形式呈现
@@ -27,6 +28,7 @@ ROUTERS = [
     (role_router, [role_prefix], role_prefix),
     (permission_router, [permission_prefix], permission_prefix),
     (manage_user_router, [manage_user_prefix], manage_user_prefix),
+    (form_router, [form_prefix], form_prefix),
 ]
 
 

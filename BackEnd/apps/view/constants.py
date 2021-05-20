@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from apps.a_common.constants import NATION_MAP, PERMISSION_TYPE_MAP, SEX_MAP, USER_IDENTITY_MAP
+from apps.a_common.constants import NATION_MAP, PERMISSION_TYPE_MAP, SEX_MAP, USER_IDENTITY_MAP, HealthCode_Map
 from apps.a_common.response import success_response
 
 constants_router = APIRouter()
@@ -14,5 +14,6 @@ async def get_constants():
         'sex': SEX_MAP,
         'permission_type': PERMISSION_TYPE_MAP,
         'nation': NATION_MAP,
+        'health_code': HealthCode_Map
     }
     return success_response(data)
