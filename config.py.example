@@ -1,0 +1,38 @@
+import logging
+
+DEBUG = True
+HOST = '127.0.0.1'
+PORT = 8000
+ADDRESS = f"{HOST}:{PORT}"
+DEFAULT_APP_NAME = 'app'
+API_PREFIX = '/v1/api'
+
+# log
+LOG_LEVEL = logging.INFO
+LOG_FILE = HB_LOG_FILE = TASK_LOG = SQL_LOG = ''
+
+# secret key
+SECRET_KEY = ''
+
+# storage
+IMAGE_PATH = 'storage/image/'
+FILE_PATH = 'storage/file/'
+TEMP_PATH = 'storage/temp/'
+
+# sql
+SQL_POOL_SIZE = 100
+SQL_POOL_TIMEOUT = 3
+SQL_USER = ''
+SQL_PASS = ''
+SQL_HOST = ''
+SQL_PORT = ''
+SQL_DB = ''
+SQL_URL = 'mysql://%s:%s@%s:%s/%s' % (SQL_USER, SQL_PASS, SQL_HOST, SQL_PORT, SQL_DB)
+SQL_CONNECT_ARGS = {}
+
+# mail
+
+SMTP_SERVER = 'smtp.exmail.qq.com'
+SMTP_USER = 'abc@example.com'
+SMTP_PWD = 'thisisapwd'
+TO_MAIL = ['to@example.com']

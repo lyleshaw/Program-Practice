@@ -1,0 +1,25 @@
+from fastapi.testclient import TestClient
+
+from apps.a_common.permission import constants_permission_set
+from apps.test import app, assert_response_success, clean_all, generate_permission, get_client, get_session_local, override_get_user
+from config import API_PREFIX
+from utils.encode import uuid
+
+api_prefix = f"{API_PREFIX}/{prefix}"
+
+
+def setup_module():
+    """ 这个文件下的测试开始之前，会执行这个函数 """
+
+
+def teardown_module():
+    """ 这个文件下的测试结束之后，会执行这个函数 """
+
+
+def setup_function():
+    """ 这个文件下的每个测试运行之前，都会执行这个函数 """
+    clean_all()
+
+
+def teardown_function():
+    """ 这个文件下的每个测试运行之后，都会执行这个函数 """

@@ -1,0 +1,18 @@
+from apps.a_common.constants import OrganizationType
+
+ORGANIZATIONS = [
+    {
+        'name': "杭州电子科技大学",
+        'type': OrganizationType.SCHOOL,
+        'self_group_format': '{}书记',
+        'children': [
+            '管理学院',
+            '卓越学院',
+            '计算机学院',
+            '人艺数法学院',
+            '材环学院'
+        ],
+        'children_group_format': '{}支部书记',
+        'children_type': OrganizationType.COLLEGE
+    }
+]

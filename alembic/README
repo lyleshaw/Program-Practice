@@ -1,0 +1,9 @@
+Generic single-database configuration.
+
+# 新建一个migrations。注意，这里autogenerate是拿ORM声明和数据库中的声明比对！
+
+C:\Project\fastapi-based-blog>alembic revision --autogenerate -m "init"
+
+# 将最新的一个迁移文件应用到数据库
+
+C:\Project\fastapi-based-blog>alembic upgrade head

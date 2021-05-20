@@ -1,0 +1,39 @@
+import logging
+
+DEBUG = True
+HOST = '127.0.0.1'
+PORT = 8000
+# 下面这个这也是要改的。这里是后端暴露给前端的地址。由于nginx的存在，fastapi运行的地址并不是实际上能够访问到后端的地址
+ADDRESS = f"http://{HOST}:{PORT}"
+DEFAULT_APP_NAME = 'app'
+API_PREFIX = '/v1/api'
+
+# log
+LOG_LEVEL = logging.INFO
+LOG_FILE = HB_LOG_FILE = TASK_LOG = SQL_LOG = ''
+
+# secret key
+SECRET_KEY = ''
+
+# storage
+IMAGE_PATH = 'storage/image/'
+FILE_PATH = 'storage/file/'
+TEMP_PATH = 'storage/temp/'
+
+# sql
+SQL_POOL_SIZE = 100
+SQL_POOL_TIMEOUT = 3
+SQL_USER = ''
+SQL_PASS = ''
+SQL_HOST = ''
+SQL_PORT = ''
+SQL_DB = ''
+SQL_URL = 'mysql://%s:%s@%s:%s/%s?charset=utf8mb4' % (SQL_USER, SQL_PASS, SQL_HOST, SQL_PORT, SQL_DB)
+SQL_CONNECT_ARGS = {}
+
+# mail
+
+SMTP_SERVER = ''
+SMTP_USER = ''
+SMTP_PWD = ''
+TO_MAIL = ['']
