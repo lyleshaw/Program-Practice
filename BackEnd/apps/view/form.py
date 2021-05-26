@@ -46,4 +46,5 @@ async def get_all_form(request: Request, search_condiction: FormSearchSerializer
 @form_router.delete("/{form_id}", summary="管理员删除指定表单")
 async def get_all_form(request: Request, form_id: int, manager: UserDB = Depends(get_user), session: Session = Depends(get_session)):
     form = delete_form_by_id(session=session, form_id=form_id)
-    return success_response(form)
+    session.commit()
+    return success_response(to_FormDetailSerializer(form))
