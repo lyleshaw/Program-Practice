@@ -50,6 +50,10 @@ class FormSerializer(BaseModel):
         }
 
 
+class FormUpdateSerializer(BaseModel):
+    phone: str = PhoneField
+
+
 class FormSearchSerializer(BaseModel):
     name: str = None
     sex: SEX_LITERAL = None

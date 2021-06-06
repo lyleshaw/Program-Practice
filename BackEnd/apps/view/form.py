@@ -7,11 +7,11 @@ from apps.a_common.db import get_session, Pagination
 from apps.a_common.response import make_paginate_info, success_response
 from apps.a_common.scheme import PageInfo, PageInfo_
 
-from apps.crud.form import add_form, get_form_by_search, delete_form_by_id
+from apps.crud.form import add_form, get_form_by_search, update_form_by_phone, delete_form_by_id
 from apps.logic.user import get_user
 from apps.model.user import UserDB
 from apps.model.form import FormDB
-from apps.serializer.form import FormSerializer, FormSearchSerializer, to_FormDetailSerializer, to_UserDetailSerializerList
+from apps.serializer.form import FormSerializer, FormSearchSerializer, FormUpdateSerializer, to_FormDetailSerializer, to_UserDetailSerializerList
 
 form_router = APIRouter()
 form_prefix = 'form'
@@ -23,6 +23,13 @@ async def create_form(form_data: FormSerializer, session: Session = Depends(get_
     form = add_form(session=session, form_data=form_data)
     session.commit()
     return success_response(to_FormDetailSerializer(form))
+
+
+@form_router.post("/out_time", summary="修改表单入校时间")
+async def create_form(data: FormUpdateSerializer, session: Session = Depends(get_session)):
+    update_form_by_phone(session=session, data=data)
+    session.commit()
+    return success_response()
 
 
 @form_router.get("", summary="管理员查看全部表单")

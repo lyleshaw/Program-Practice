@@ -1,8 +1,10 @@
 from typing import List
 from sqlalchemy.orm import Session, Query
+from sqlalchemy import text, desc
 
 from apps.model.form import FormDB
-from apps.serializer.form import FormSerializer, FormSearchSerializer
+from apps.serializer.form import FormSerializer, FormSearchSerializer, FormUpdateSerializer
+from utils.time import int_timestamp
 
 
 def add_form(session: Session, form_data: FormSerializer) -> FormDB:
@@ -25,6 +27,13 @@ def add_form(session: Session, form_data: FormSerializer) -> FormDB:
         out_time_applied=form_data.out_time_applied)
     session.add(form)
     return form
+
+
+def update_form_by_phone(session: Session, data: FormUpdateSerializer):
+    forms = session.query(FormDB).filter(FormDB.phone == data.phone).order_by(FormDB.in_time_real).all()
+    if forms:
+        forms[0].out_time_real = int_timestamp()
+        session.add(forms[0])
 
 
 def get_form_by_id(session: Session, form_id: int) -> FormDB:
